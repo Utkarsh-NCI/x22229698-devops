@@ -15,8 +15,8 @@ phases:
       - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
   build:
     commands:
-      - mvn verify sonar:sonar -Dsonar.login=c5a367dded8439edcd8a88576e2f9615a62206bf -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=x22229698-devops -Dsonar.organization=utkarsh-nci
+      - mvn verify sonar:sonar -Dsonar.login=c5a367dded8439edcd8a88576e2f9615a62206bf -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=Utkarsh-NCI_x22229698-devops -Dsonar.organization=utkarsh-nci
       - sleep 5
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=x22229698-devops >result.json
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=Utkarsh-NCI_x22229698-devops >result.json
       - cat result.json
       - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
