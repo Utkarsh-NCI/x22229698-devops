@@ -1,1 +1,21 @@
-<h1>OK</h1>
+{% extends "modules/base.html" %}
+
+{% block content %}
+
+<h1>Courses</h1>
+
+<div class="flex flex-wrap justify-around" >
+
+    {% for module in modules %}
+        <div class="flex card w-96 bg-base-100 shadow-xl mt-4 mb-4" onclick="">
+            
+                <img src="{{ MEDIA_URL }}{{ module.image }}" class="rounded-t-2xl"/>
+            <div class="card-body">
+                <h2 class="card-title">{{module.name}}</h2>
+                <p>{{module.description}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

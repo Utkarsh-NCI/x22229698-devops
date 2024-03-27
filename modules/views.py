@@ -1,7 +1,8 @@
 from django.http import Http404
 from django.shortcuts import render
-from .models import Topic
+from modules.models import Topic,Module
+
 def index(request):
-    topics = Topic.objects.all()
-    context = {'topics': topics}
+    module = Module.objects.all()
+    context = {'modules': module}
     return render(request, 'modules/index.html', context)
