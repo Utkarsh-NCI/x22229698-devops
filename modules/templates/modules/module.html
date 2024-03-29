@@ -1,18 +1,21 @@
 {% extends "modules/base.html" %}
 
 {% block content %}
-<div class="flex flex-1">
-<div class="flex flex-wrap justify-around" >
-
-    {% for topic in modules.topics %}
-    <div class="collapse collapse-arrow bg-base-100">
-        <input type="radio" name="my-accordion-2" checked="checked" /> 
-            <div class="collapse-title text-xl font-medium">
-                Click to open this one and close others
+<div class="flex flex-1 flex-col h-screen px-9" >
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li><a href="/" class="text-gray-900">Home</a></li> 
+    <li><a class="text-gray-900">{{module.name}}</a></li> 
+  </ul>
+</div>
+    {% for topic in topics %}
+    <div class="collapse collapse-arrow collapse-title my-4 border-base-300 border-2">
+        <input type="radio" name="module-accordion" /> 
+            <div class="collapse-title text-gray-900 font-bold text-xl mb-2">
+                {{topic.name}}
           </div>
         <div class="collapse-content"> 
-        <p>hello</p>
-        </div>
+        <p class="text-gray-700 text-base">{{topic.description}}</p>
         </div>
     </div> 
     {% endfor %}

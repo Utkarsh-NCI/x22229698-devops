@@ -12,6 +12,9 @@ def show(request, module_id):
         module = Module.objects.get(pk=module_id)
     except Module.DoesNotExist:
         raise Http404("Module does not exist")
-    print(module.topic_set.all())    
-    context = {'module':module}
+    topics =module.topic_set.all()
+    context = {
+        'module':module,
+        'topics':topics,
+    }
     return render(request, 'modules/module.html', context)    
