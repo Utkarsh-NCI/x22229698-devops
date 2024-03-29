@@ -1,0 +1,21 @@
+{% extends "modules/base.html" %}
+
+{% block content %}
+<div class="flex flex-1">
+<div class="flex flex-wrap justify-around" >
+
+    {% for topic in modules.topics %}
+    <div class="collapse collapse-arrow bg-base-100">
+        <input type="radio" name="my-accordion-2" checked="checked" /> 
+            <div class="collapse-title text-xl font-medium">
+                Click to open this one and close others
+          </div>
+        <div class="collapse-content"> 
+        <p>hello</p>
+        </div>
+        </div>
+    </div> 
+    {% endfor %}
+</div>
+
+{% endblock content %}
