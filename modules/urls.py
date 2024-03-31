@@ -5,4 +5,5 @@ app_name='modules'
 urlpatterns = [
     path('', views.index, name='index'),
     path('module/<int:module_id>/', views.show, name='module'),
+    path('feedback/', views.feedback, name='feedback'),
     ]

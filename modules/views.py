@@ -1,6 +1,7 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from modules.models import Topic,Module
+from .forms import FeedbackForm
 
 def index(request):
     module = Module.objects.all()
@@ -16,5 +17,16 @@ def show(request, module_id):
     context = {
         'module':module,
         'topics':topics,
-    }
+    }    
     return render(request, 'modules/module.html', context)    
+
+def feedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')        
+    else:
+        print("GET")
+        form = FeedbackForm()
+    return render(request, 'modules/feedback.html', {'form': form})

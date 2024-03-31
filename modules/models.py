@@ -20,3 +20,11 @@ class Topic(models.Model):
 class TopicAdmin(admin.ModelAdmin):
     list_display = ['module', 'name']
     list_filter = ['module']
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    def __str__(self):
+        return f"{self.email}"
+    

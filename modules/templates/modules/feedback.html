@@ -1,0 +1,28 @@
+{% extends "modules/base.html" %}
+
+{% block content %}
+<div class="flex flex-1 flex-col px-9">
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li><a href="/" class="text-gray-900">Home</a></li> 
+    <li><a class="text-gray-900">Feedback</a></li> 
+  </ul>
+</div>
+<form method="post" class="flex flex-1 flex-col w-full justify-center items-center">
+    {% csrf_token %}
+    <input type="text" name="name" class="form-control input input-bordered w-96 my-2" placeholder="Name" maxlength="100" required="" id="id_name">
+     {% if form.name.errors %}
+                {% for error in form.name.errors %}
+                <div class="label self-start">
+                    <span class="label-text-alt">{{error}}</span>
+                </div>        
+                {% endfor %}
+    {% endif %}
+    <input type="email" name="email" class="form-control input input-bordered w-96 my-2" placeholder="Email"maxlength="254" required="" id="id_email">
+    <textarea name="message" cols="40" rows="10" class="form-control textarea textarea-bordered w-96 my-2" placeholder="Message" required="" id="id_message"></textarea> 
+    <div class="form-group py-2">
+        <input class="btn w-96" type="submit" value="Submit">
+    </div>
+</form>
+</div>
+{% endblock content %}
