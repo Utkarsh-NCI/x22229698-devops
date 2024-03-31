@@ -7,17 +7,21 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('modules', '0006_rename_topic_module_topics'),
+        ("modules", "0006_rename_topic_module_topics"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='module',
-            name='topics',
+            model_name="module",
+            name="topics",
         ),
         migrations.AddField(
-            model_name='topic',
-            name='module',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='modules.module'),
+            model_name="topic",
+            name="module",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="modules.module",
+            ),
         ),
     ]

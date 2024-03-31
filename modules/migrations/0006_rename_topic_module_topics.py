@@ -6,13 +6,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('modules', '0005_remove_topic_module_module_topic'),
+        ("modules", "0005_remove_topic_module_module_topic"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='module',
-            old_name='topic',
-            new_name='topics',
+            model_name="module",
+            old_name="topic",
+            new_name="topics",
         ),
     ]

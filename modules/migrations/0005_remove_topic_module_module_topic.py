@@ -7,17 +7,21 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('modules', '0004_module_image'),
+        ("modules", "0004_module_image"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='topic',
-            name='module',
+            model_name="topic",
+            name="module",
         ),
         migrations.AddField(
-            model_name='module',
-            name='topic',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='modules.topic'),
+            model_name="module",
+            name="topic",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="modules.topic",
+            ),
         ),
     ]
