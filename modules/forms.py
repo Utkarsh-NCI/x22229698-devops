@@ -1,10 +1,11 @@
+'"Forms module"'
 from django import forms
-from django.forms import ModelForm, TextInput, EmailInput, Textarea
-from .models import Feedback
+from django.forms import TextInput, EmailInput, Textarea
 from django.core import validators
-
+from .models import Feedback
 
 class FeedbackForm(forms.ModelForm):
+    '"Feedback form"'
     min = 2
     max = 50
     msg_min = f"Should have atleast {min} char"
@@ -21,6 +22,7 @@ class FeedbackForm(forms.ModelForm):
     )
 
     class Meta:
+        """Feedback form meta"""
         model = Feedback
         fields = ["name", "email", "message"]
         widgets = {
