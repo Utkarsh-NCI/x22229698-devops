@@ -2,7 +2,7 @@
 from django.urls import path
 from . import views
 
-app_name = "modules"
+app_name = "modules"  # pylint: disable=invalid-name
 urlpatterns = [
     path("", views.index, name="index"),
     path("module/<int:module_id>/", views.show, name="module"),

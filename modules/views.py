@@ -7,7 +7,7 @@ from .forms import FeedbackForm
 
 def index(request):
     """Landing page"""
-    module = Module.objects.all()
+    module = Module.objects.all() # pylint: disable=no-member
     context = {"modules": module}
     return render(request, "modules/index.html", context)
 
@@ -15,7 +15,7 @@ def index(request):
 def show(request, module_id):
     """Specific module description"""
     try:
-        module = Module.objects.get(pk=module_id)
+        module = Module.objects.get(pk=module_id) # pylint: disable=no-member
     except Exception as exc:
         raise Http404("Module does not exist") from exc
     topics = module.topic_set.all()

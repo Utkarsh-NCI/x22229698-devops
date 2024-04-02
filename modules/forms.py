@@ -5,6 +5,7 @@ from django.core import validators
 from .models import Feedback
 
 class FeedbackForm(forms.ModelForm):
+ # pylint: disable=too-few-public-methods
     '"Feedback form"'
     min = 2
     max = 50
