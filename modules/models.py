@@ -12,6 +12,10 @@ class Module(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+    @property
+    def  is_image_uploaded(self):
+        """Check if image is uploaded"""
+        return bool(self.image)
 
 
 class Topic(models.Model):
