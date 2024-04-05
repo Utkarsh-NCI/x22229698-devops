@@ -1,7 +1,7 @@
 """Module application views"""
 from django.http import Http404
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_POST, require_GET,require_http_methods
+from django.views.decorators.http import require_GET,require_http_methods
 from modules.models import Module
 from .forms import FeedbackForm
 
