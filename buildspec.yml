@@ -16,7 +16,7 @@ phases:
 
   build:
     commands:
-      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$PROJECT -Dsonar.organization=$ORGANIZATION -Dsonar.python.version=3
+      - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$PROJECT -Dsonar.organization=$ORGANIZATION -Dsonar.python.version=3 -Dsonar.python.coverage.reportPaths=coverage.xml
       - sleep 5
       - curl -u $LOGIN https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project > result.json
       - cat result.json
