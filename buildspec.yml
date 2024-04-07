@@ -3,6 +3,9 @@ phases:
   install:
     runtime-versions:
       java: corretto17 #updating to java 17
+    commands:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt pylint
   pre_build:
     commands:
       - yum update -y
