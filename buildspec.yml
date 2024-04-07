@@ -3,8 +3,6 @@ phases:
   install:
     runtime-versions:
       java: corretto17 #updating to java 17
-    commands:
-      - pip install -r requirements.txt
   pre_build:
     commands:
       - yum update -y
@@ -18,6 +16,7 @@ phases:
 
   build:
     commands:
+      - pip install -r requirements.txt
       - tox -e py
       - sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.login=$TOKEN -Dsonar.host.url=$HOST -Dsonar.projectKey=$PROJECT -Dsonar.organization=$ORGANIZATION -Dsonar.python.version=3 -Dsonar.python.coverage.reportPaths=coverage.xml
       - wget "https://sonarcloud.io/api/qualitygates/project_status?projectKey=Utkarsh-NCI_x22229698-devops" > result.json
