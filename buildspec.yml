@@ -17,7 +17,6 @@ phases:
 
   build:
     commands:
-      - find / -name pom.xml -exec mv {} ./pom.xml \; || true  # Move all pom.xml files to root
-      - mvn sonar:sonar -Dsonar.login=c5a367dded8439edcd8a88576e2f9615a62206bf -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=Utkarsh-NCI_x22229698-devops -Dsonar.organization=utkarsh-nci
+      - mvn sonar:sonar -Dsonar.login=c5a367dded8439edcd8a88576e2f9615a62206bf -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=Utkarsh-NCI_x22229698-devops -Dsonar.organization=utkarsh-nci -Dsonar.python.version=3
       - sleep 5
       - if curl -s -o /dev/null -w "%{http_code}" https://sonarcloud.io/api/qualitygates/project_status?projectKey=Utkarsh-NCI_x22229698-devops != "200"; then exit 1; fi
